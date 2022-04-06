@@ -105,6 +105,29 @@ public class Task {
         }
 
         return result;
+
+        /* explanation
+        XOR is a bitwise operator, operates the bits of two numbers
+        it returns 1 only if the two bits are different
+        if the two bits are the same (no matter that they are 0-0 or 1-1), then 0 will be returned
+        because of that, same numbers will "destroy" each other...
+        ...because same numbers have same bits, so 0 will be returned
+            for example:
+                    in binary:      101 ^ 101 = 000
+                    in decimal:     5 ^ 5 = 0
+        but see what happens if we XOR one different number with two same numbers...
+            5 ^ 2 ^ 5 = ?
+                first step:
+                    in binary:      101 ^ 010 = 111
+                    in decimal:     5 ^ 2 = 7
+                second step:
+                    in binary:      111 ^ 101 = 010
+                    in decimal:     7 ^ 5 = 2
+            so 5 ^ 2 ^ 5 = 2
+        it seems that the "lonely" number is simply added
+        Q.E.D.
+         */
+
     }
 
 }
