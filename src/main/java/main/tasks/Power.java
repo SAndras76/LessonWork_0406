@@ -18,8 +18,13 @@ public class Power {
      * Hatványozást végez: a base értékét az exponent kitevőre emeli.
      */
     public static int power(int base, int exponent) {
-        // write your code here
-        return -1;
+        int result = 1;
+
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+
+        return result;
     }
 
 }

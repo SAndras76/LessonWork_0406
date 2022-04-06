@@ -1,5 +1,7 @@
 package main.tasks;
 
+import main.WithoutTest;
+
 public class Task {
 
     /**
@@ -8,11 +10,17 @@ public class Task {
      * Biztos lehetsz benne, hogy a bemeneti paraméterként kapott n értéke pozitív egész szám.
      */
     public static int findNthPrime(int n) {
-        /*
-        használd a WithoutTest osztályban lévő isPrime metódust - például így:
-        boolean isPrime = WithoutTest.isPrime(2);
-         */
-        return -1;
+        int checkNumber = 1;
+        int counter = 0;
+
+        while (counter < n) {
+            checkNumber++;
+            if (WithoutTest.isPrime(checkNumber)) {
+                counter++;
+            }
+        }
+
+        return checkNumber;
     }
 
     /**
@@ -21,18 +29,30 @@ public class Task {
      * Biztos lehet benne, hogy a szöveg hossza nagyobb 0-nál.
      */
     public static int countLetterInText(String text, char letter) {
-        /*
-        tipp:
-        char oneLetter = text.charAt(0);    // a szöveg legelső, azaz 0. indexén lévő karaktere
-         */
-        return -1;
+        int counter = 0;
+
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == letter) {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
     /**
      * Megszámolja, hogy adott elem hányszor szerepel a tömbben.
      */
     public static int countElemInArray(int[] array, int elem) {
-        return -1;
+        int counter = 0;
+
+        for (int element : array) {
+            if (element == elem) {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
     /**
@@ -48,7 +68,18 @@ public class Task {
      *              ezúttal a 2-t találja meg előbb, ezért ez a megoldás
      */
     public static int findMostFrequentElem(int[] array) {
-        return -1;
+        int checkedElem = 0;
+        int counter = 0;
+
+        for (int elem : array) {
+            int occurrence = countElemInArray(array, elem);
+            if (occurrence > counter) {
+                counter = occurrence;
+                checkedElem = elem;
+            }
+        }
+
+        return checkedElem;
     }
 
     /**
@@ -67,7 +98,13 @@ public class Task {
      * Az összes többi elem párosával szerepel benne (2-szer, 4-szer, 6-szor stb.)
      */
     public static int findLonelyElem(int[] array) {
-        return -1;
+        int result = 0;
+
+        for (int elem : array) {
+            result ^= elem;
+        }
+
+        return result;
     }
 
 }
